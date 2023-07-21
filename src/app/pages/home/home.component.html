@@ -1,9 +1,29 @@
-<div class="bootstrap-wrapper">
+<div class="bootstrap-wrapper container">
   <div class="container">
-    <div class="row mt20">
-      <div class = "col-md-6 offset-md-3 text-center">
-        <h1>Bienvenido al portal de examenes</h1>
-        <button mat-raised-button class="bg">Inicio</button>
+    <div class="row mt20 text-center">
+      <h1 class="text-center">Carvajal, soluciones y tecnología</h1>
+      <div class="container">
+        
+        <mat-card class="example-card " *ngFor="let p of products">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image" ></div>
+            <mat-card-title>{{ p.name }}</mat-card-title>
+            <mat-card-subtitle>{{ p.description}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{ p.imgPath }}" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              Price: {{ p.price }}
+            </p>
+            <p>
+              En Stock: {{ p.stock }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions class="button-center">
+            <button mat-fab extended (click)="addDesiredList(p.id)" class="bg"> Añadir
+            </button>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </div>

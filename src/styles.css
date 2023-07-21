@@ -7,6 +7,10 @@ body {
   background: #f5f5f5;
 }
 
+.container1{
+  flex-direction: row !important;
+}
+
 .text-center{
   text-align: center;
 }
@@ -55,6 +59,11 @@ body {
   }
 
 .bg{
-    background-color: green !important;
+    background-color: rgb(6,63,103) !important;
     color: white !important;
+    height: 90px; /* Ajusta la altura según tus necesidades */
+    
+  }
+  .ml150{
+    margin-right: 150px !important;
   }

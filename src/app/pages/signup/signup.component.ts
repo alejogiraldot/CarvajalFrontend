@@ -1,6 +1,6 @@
 import  Swal  from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserService } from './../../services/user.service';
+import { productService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,10 +16,11 @@ export class SignupComponent implements OnInit {
     nombre : '',
     apellido : '',
     email : '',
-    telefono : ''
+    telefono : '',
+    rol : ''
   }
 
-  constructor(private userService:UserService, private snack:MatSnackBar) { }
+  constructor(private productService:productService,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -27,22 +28,25 @@ export class SignupComponent implements OnInit {
   formSubmit(){
     console.log(this.user);
     if(this.user.username == '' || this.user.username == null){
-      this.snack.open("el nombre de usuario es requerido","aceptar",{duration: 3000,
-      verticalPosition: "top",
-      horizontalPosition: "right"});
+      this.snack.open('El nombre de usuario es requerido !!','Aceptar',{
+        duration : 3000,
+        verticalPosition : 'top',
+        horizontalPosition : 'right'
+      });
       return;
     }
-    this.userService.añadirUsuario(this.user).subscribe(
+
+    this.productService.saveUser(this.user).subscribe(
       (data) => {
         console.log(data);
-        Swal.fire("usuario guardado","usuario registrado con exito","success");
-
-      },(error)=>{
+        Swal.fire('Usuario guardado','Usuario registrado con exito en el sistema','success');
+      },(error) => {
         console.log(error);
-        this.snack.open("ha ocurrido un error en el sistema","aceptar",{duration: 3000,
-          verticalPosition: "top",
-          horizontalPosition: "right"});
+        this.snack.open('Ha ocurrido un error en el sistema !!','Aceptar',{
+          duration : 3000
+        });
       }
     )
   }
+
 }

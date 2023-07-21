@@ -1,0 +1,38 @@
+<div class="bootstrap-wrapper ">
+    <div class="container">
+      <div class="row mt20 ">
+        <h1 class="text-center text-center" style="padding-left: 400px;">Carvajal, soluciones y tecnología</h1>
+        <div class="container" style="padding-left: 250px;">
+            <table >
+                <tr  >
+                    <th>
+                        Id del usuario
+                    </th>
+                    <th style="padding-left: 25px;">
+                        Id del producto
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th >
+                        Descripcion
+                    </th>
+                </tr>
+                <tr *ngFor="let p of historical">
+                    <td style="padding-left: 30px;">
+                        {{p.userId}}
+                    </td>
+                    <td style="padding-left: 50px;">
+                        {{p.productId}}
+                    </td>
+                    <td>
+                        {{p.date}}
+                    </td>
+                    <td style="padding-left: 25px;">
+                        {{p.description}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    
+  </div>

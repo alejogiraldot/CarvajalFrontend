@@ -1,10 +1,37 @@
-<mat-toolbar color="primary" class="bg">
+<mat-toolbar color="primary" class="bg" >
     <a [routerLink]="'/'"
-        mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu_books</mat-icon>
+        mat-icon-button class="example-icon">
+        <img src="../../../assets/Carvajal.PNG"  style="width: 170px; height: 70px; padding-bottom: 20px; margin-right: 100px;">
     </a>
-    <span>Portal de exámenes</span>
+    <span></span>
     <span class="example-spacer"></span>
-    <a [routerLink]="'/login'"  mat-icon-button class="example-icon favorite-icon mr70" aria-label="Example icon-button with heart icon">Iniciar sesión</a>
-    <a [routerLink]="'/singup'" mat-icon-button class="example-icon favorite-icon ml70" aria-label="Example icon-button with heart icon">Registrar</a>
-</mat-toolbar>
+    <a *ngIf = "!isLoggedIn" [routerLink]="'/login'"  mat-icon-button class="example-icon favorite-icon mr70" aria-label="Example icon-button with heart icon">Iniciar sesión</a>
+    <a *ngIf = "!isLoggedIn" [routerLink]="'/signup'" mat-icon-button class="example-icon favorite-icon ml70" aria-label="Example icon-button with heart icon">Registrar</a>
+    <a *ngIf = "!isLoggedIn" [routerLink]="'/wishlist'" mat-icon-button class="example-icon favorite-icon ml70" aria-label="Example icon-button with heart icon">wishList</a>
+    <a *ngIf = "!isLoggedIn" [routerLink]="'/historical'" mat-icon-button class="example-icon favorite-icon ml70" aria-label="Example icon-button with heart icon">Historico</a>
+    
+    
+    
+    
+     <button
+     *ngIf = "isLoggedIn && user"
+     mat-button
+     style="margin-right: 10px; margin-top: 10px;"
+     
+     aria-label="Example icon-button with heart icon"
+   >
+   
+
+ 
+   
+   </button>
+   
+   <a *ngIf="isLoggedIn" [routerLink]="'/admin-dashboard'" mat-icon-button class="example-icon favorite-icon mr70" aria-label="Example icon-button with heart icon">
+    {{ user.username }} 
+  </a>
+   
+
+    <a *ngIf = "isLoggedIn"
+     (click) = "logout()" (click)= "logout()" [routerLink]="'/signup'"  mat-icon-button class="example-icon favorite-icon ml150" aria-label="Example icon-button with heart icon">Cerrar Sesion</a>
+     
+    </mat-toolbar>

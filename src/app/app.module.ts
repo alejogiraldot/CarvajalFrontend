@@ -19,6 +19,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './pages/home/home.component';
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { HistoricalComponent } from './pages/historical/historical.component';
+
 
 
 
@@ -29,6 +33,8 @@ import { HomeComponent } from './pages/home/home.component';
     NavbarComponent,
     SignupComponent,
     LoginComponent,
+    WishlistComponent,
+    HistoricalComponent,
     HomeComponent
   ],
   imports: [
@@ -45,7 +51,7 @@ import { HomeComponent } from './pages/home/home.component';
     MatToolbarModule,
     MatIconModule
   ],
-
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
